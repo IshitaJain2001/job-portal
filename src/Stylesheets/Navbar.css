@@ -1,0 +1,61 @@
+ .navbar-container{
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 22px;
+ }
+ 
+  .navbar-container input{
+    padding: 4px;
+    font-size: 20px;
+  }
+
+ button{
+    font-size: 22px;
+background-color: transparent;
+border: none;
+
+ }
+
+ .left{
+    display: flex;
+width: 20%;
+    justify-content: space-evenly;
+ }
+
+ .loginbtns{
+    display: flex;
+   justify-content: space-between;
+   width: 15vw;
+
+ }
+
+.jobs-hover{
+   position: relative;
+   left: 80px;
+   font-size: 20px;
+
+}
+
+.companies-hover{
+   position: relative;
+   left: 120px;
+   font-size: 20px;
+
+}
+
+.center{
+   position: relative;
+}
+.center button{
+position: absolute;
+left: 90%;
+top: 10%;
+opacity: 0.7;
+}
+
+.center button:hover{
+
+opacity: 0.9;
+}
