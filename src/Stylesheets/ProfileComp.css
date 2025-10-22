@@ -1,0 +1,23 @@
+  .profile-container{
+    width: 30vw;
+    height: 100vh;
+    background-color: white;
+    border-radius: 20px;
+    position: absolute;
+    right: 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    top: 0;
+    justify-content: space-around;
+  }
+
+  .logout{
+cursor: pointer;
+  }
+
+  .disabledlogout{
+    opacity: 0.5;
+cursor:not-allowed;
+  }
+  

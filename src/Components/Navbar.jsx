@@ -3,10 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
  import "../Stylesheets/Navbar.css"
  import { FaSearch } from "react-icons/fa";
  import { userSearch } from '../toolkit/SearchSlice';
+import ProfileComp from './ProfileComp';
+import Overlay from './Overlay';
  export default function Navbar() {
     const [Visible, setVisible]=  useState([false, false ])
      const isLoggedIn=   useSelector(state=> state.login.isLoggedIn)
      const user= useSelector(state=>state.login.user)
+     const [isProfileOpen, setIsProfileOpen]= useState(false)
     const dispatch=  useDispatch()
 // npm i react-icons 
      let [userSearch,setUserSearch]= useState("")
@@ -14,6 +17,13 @@ import { useDispatch, useSelector } from 'react-redux'
     <>
   
      <div className='navbar-container'>
+        {
+            isProfileOpen? (
+            <>
+            
+            <Overlay/>
+            <ProfileComp setIsProfileOpen={setIsProfileOpen}/> </>):null
+        }
         <div className="left">
             <button >LOGO</button>
             <button onMouseEnter={()=>{
@@ -37,7 +47,7 @@ import { useDispatch, useSelector } from 'react-redux'
                 : <div className='loginbtns'>
                     <button>register</button>
                     <button>login</button>
-                    <button>☰</button>
+                    <button onClick={()=>setIsProfileOpen(true)}>☰</button>
                     </div>
             }
         </div></div>
