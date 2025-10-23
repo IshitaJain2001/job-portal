@@ -3,16 +3,17 @@ import Navbar from './Components/Navbar'
 import { Route, Routes } from 'react-router-dom'
 import Home from './Components/Home'
 import Settings from './Components/Settings'
-const myContext= createContext()
+export const myContext= createContext()
+
 export default function App() {
-const [jobs,setJobs]=  useState([])
+const [jobsArray,setJobs]=  useState([])
  useEffect(()=>{
     async function gettingJobs(){
- fetch('https://remotive.com/api/remote-jobs?category=software-dev&limit=50')
+ fetch('https://remotive.com/api/remote-jobs?category=all&limit=1000')
   .then(res => res.json())
   .then(data => {
    setJobs(data)
-   console.log(data);
+
    })
   .catch(err => console.error(err));
 }
@@ -20,8 +21,9 @@ gettingJobs()
   },[])
   return (
     <div>
-<Navbar/>
-<myContext.Provider value={{jobs}}>
+
+<myContext.Provider value={{jobsArray}}>
+  <Navbar/>
 <Home/>
 
 </myContext.Provider>
