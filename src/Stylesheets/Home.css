@@ -1,0 +1,12 @@
+ .cards-container{
+  display: flex;
+  justify-content: center;
+    
+ }
+
+ .cards{
+    display: grid;
+grid-template-columns: repeat(3, 300px);
+row-gap: 50px;
+margin-top: 50px;
+}

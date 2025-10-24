@@ -3,6 +3,8 @@ import Navbar from './Components/Navbar'
 import { Route, Routes } from 'react-router-dom'
 import Home from './Components/Home'
 import Settings from './Components/Settings'
+import Jobs from './Components/Jobs'
+import ApplySection from './Components/ApplySection'
 export const myContext= createContext()
 
 export default function App() {
@@ -24,14 +26,16 @@ gettingJobs()
 
 <myContext.Provider value={{jobsArray}}>
   <Navbar/>
-<Home/>
+
+<Routes>
+  <Route path="/" element={<Home/>}/>
+<Route path='/help-centre' element={<Settings/>}/>
+<Route path='/jobs/:category' element={<Jobs/>}/>
+<Route path='/applyto/:id' element={<ApplySection/>}/>
+</Routes>
 
 </myContext.Provider>
 
-<Routes>
-<Route path='/help-centre' element={<Settings/>}/>
-
-</Routes>
 
 
 

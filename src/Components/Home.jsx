@@ -1,7 +1,8 @@
  import React, { useContext, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { myContext } from '../App';
- 
+ import "../Stylesheets/Home.css"
+import { Link } from 'react-router-dom';
  export default function Home() {
   const isLoggedIn=   useSelector(state=> state.login.isLoggedIn)
 
@@ -34,17 +35,22 @@ console.log(jobsArray.jobs);
 }, [jobsArray]);
 
    return (
-     <div>
+     <div className='cards-container'>
       <div className="cards">
 {
   jobCategory.length>0 ?
   jobCategory.map((job, index)=>{return(
-  <div className="card">
+
+    <Link to={`/jobs/${encodeURIComponent(job.category)}`}>
+      <div className="card">
 
     <h2>{job.category} </h2>  
-    <p>Around {job.numofjobs}</p>
+    <p>Around {job.numofjobs} jobs</p>
 
     </div>
+    
+    </Link>
+
     )
   
   })
