@@ -31,7 +31,7 @@ gettingJobs()
   <Route path="/" element={<Home/>}/>
 <Route path='/help-centre' element={<Settings/>}/>
 <Route path='/jobs/:category' element={<Jobs/>}/>
-<Route path='/applyto/:id' element={<ApplySection/>}/>
+<Route path='/applyto/:category/:id' element={<ApplySection/>}/>
 </Routes>
 
 </myContext.Provider>

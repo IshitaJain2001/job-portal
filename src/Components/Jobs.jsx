@@ -26,7 +26,7 @@ setFilteredJobs(filteredArray)
   const diffMs = now - publishedDate;
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
         return(
-            <Link to={`/applyto/${job.id}`}>
+            <Link to={`/applyto/${encodeURI(job.category)}/${job.id}`}>
             <div>
 <h3>{job.title}</h3> 
 <span>{job.company_name}</span>
