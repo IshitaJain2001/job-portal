@@ -5,6 +5,7 @@ import Home from './Components/Home'
 import Settings from './Components/Settings'
 import Jobs from './Components/Jobs'
 import ApplySection from './Components/ApplySection'
+import TopCompanydata from './Components/TopCompanydata'
 export const myContext= createContext()
 
 export default function App() {
@@ -32,6 +33,7 @@ gettingJobs()
 <Route path='/help-centre' element={<Settings/>}/>
 <Route path='/jobs/:category' element={<Jobs/>}/>
 <Route path='/applyto/:category/:id' element={<ApplySection/>}/>
+<Route path='/top-hiring-company/:company' element={<TopCompanydata/>}/>
 </Routes>
 
 </myContext.Provider>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { addJob } from '../toolkit/applicationSlice';
 
 export default function ApplySection() {
    const {category , id}=  useParams()
@@ -37,7 +38,7 @@ setDesiredJob(filteredJob)
     __html: desiredJob && desiredJob[0]?.description
   }}
 ></p>
-<a href={desiredJob[0].url}>
+<a href={desiredJob[0].url} onClick={()=>addJob(desiredJob[0])}>
 proceed to apply 
 </a>
 </div>
