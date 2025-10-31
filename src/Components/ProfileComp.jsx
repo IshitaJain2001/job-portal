@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
             isLoggedIn? <>
              <h2> dice academy </h2>
    <p> full stack developer </p>
+   <button>application history</button>
             </> : <button> pls login to proceed </button>
         }
          <button onClick={()=>setIsProfileOpen(false)}>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { addJob } from '../toolkit/applicationSlice';
+import { useDispatch } from 'react-redux';
 
 export default function ApplySection() {
    const {category , id}=  useParams()
@@ -8,6 +9,7 @@ let decodedCategory= decodeURIComponent(category )
    console.log(decodedCategory, id);
    let [categoryJobs, setCategoryjobs]= useState([])
 let [desiredJob,setDesiredJob]= useState(null)
+const dispatch= useDispatch()
    useEffect(()=>{
 async function getData(){
   try{
@@ -38,7 +40,7 @@ setDesiredJob(filteredJob)
     __html: desiredJob && desiredJob[0]?.description
   }}
 ></p>
-<a href={desiredJob[0].url} onClick={()=>addJob(desiredJob[0])}>
+<a href={desiredJob[0].url} onClick={()=>dispatch(addJob(desiredJob[0]))}>
 proceed to apply 
 </a>
 </div>
