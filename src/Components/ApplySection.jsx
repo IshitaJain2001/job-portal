@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { addJob } from '../toolkit/applicationSlice';
 import { useDispatch } from 'react-redux';
-
+import "../Stylesheets/ApplySection.css"
 export default function ApplySection() {
+  const isLoggedin = JSON.parse(localStorage.getItem("user")) || null
    const {category , id}=  useParams()
 let decodedCategory= decodeURIComponent(category )
    console.log(decodedCategory, id);
    let [categoryJobs, setCategoryjobs]= useState([])
 let [desiredJob,setDesiredJob]= useState(null)
+
+const navigate= useNavigate()
 const dispatch= useDispatch()
    useEffect(()=>{
 async function getData(){
@@ -36,15 +39,32 @@ setDesiredJob(filteredJob)
           <h2>{desiredJob[0].title}</h2>
           <h2> {desiredJob[0].company_name}</h2>
         <p
+          className="job-description"
   dangerouslySetInnerHTML={{
     __html: desiredJob && desiredJob[0]?.description
   }}
+
 ></p>
-<a href={desiredJob[0].url} onClick={()=>dispatch(addJob(desiredJob[0]))}>
-proceed to apply 
-</a>
+
+
+{
+  isLoggedin=== null ?
+  
+
+  
+  <button onClick={()=>navigate("/register")}> login to proceed </button>  
+  :  <button
+    onClick={() => {
+      dispatch(addJob(desiredJob[0]));
+      window.open(desiredJob[0].url, "_blank"); 
+    }}
+  >
+    proceed to apply
+  </button>
+}
+
 </div>
-     : <p> Job may not be available </p>
+     : <p>loading.... </p>
       }
     </div>
   )
