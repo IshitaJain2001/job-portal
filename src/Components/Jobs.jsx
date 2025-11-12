@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { myContext } from '../App';
 import { useDispatch } from 'react-redux';
+import { addSave } from '../toolkit/applicationSlice';
 
 export default function Jobs() {
     const {category} = useParams()
@@ -46,9 +47,15 @@ not disclosed
 <div style={{display:"flex", width:"200px", justifyContent:"space-between"}}>
 <button >hide</button>
 
- <button onClick={()=>dispatch(addSave({
+ <button onClick={()=>{
+alert("job saved !!")
+ dispatch(addSave({
   newJob: job
-}))}> save </button>
+}))
+
+
+ }
+}> save </button>
 
 </div>
     </div>

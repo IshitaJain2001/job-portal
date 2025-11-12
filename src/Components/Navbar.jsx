@@ -49,13 +49,15 @@ setFilteredData(array)
             <ProfileComp setIsProfileOpen={setIsProfileOpen}/> </>):null
         }
         <div className="left">
-            <button >LOGO</button>
+             <div className="nav-item">
+    <button>LOGO</button>
+  </div>
             <button onMouseEnter={()=>{
               setVisible([true, false])
-            }}  onMouseLeave={()=>setVisible([false, false])}>Jobs</button>
+            }}  >Jobs</button>
             <button onMouseEnter={()=>{
               setVisible([ false, true])
-            }}  onMouseLeave={()=>setVisible([false, false])}>Companies </button>
+            }}  >Companies </button>
         </div>
         <div className="center">
             <input type="text" name="" id="" placeholder='search job here' onChange={e=>{setUserSearch(e.target.value)
@@ -90,7 +92,7 @@ setFilteredData(array)
                  <button onClick={()=>setIsProfileOpen(true)}>☰</button>
         </div></div>
 
-     <div>
+     <div onMouseLeave={()=>setVisible([false, false])}>
         {
             Visible[0]?
             <div className="jobs-hover">
@@ -101,7 +103,8 @@ setFilteredData(array)
 </div>
             : ""
         }
-
+</div>
+<div onMouseLeave={()=>setVisible([false, false])}>
 {
     Visible[1]?
     <div className="companies-hover">
