@@ -13,7 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-const mongoUri = "mongodb+srv://ishitajain385_db_user:Q0kf4WGZjYkGat6J@cluster0.o5kqrz8.mongodb.net/"
+const mongoUri = "mongodb+srv://ishitajain385_db_user:wwgofAZeHqUc2w19@cluster0.jwhe1rf.mongodb.net/"
 mongoose
   .connect(mongoUri, {
     useNewUrlParser: true,
