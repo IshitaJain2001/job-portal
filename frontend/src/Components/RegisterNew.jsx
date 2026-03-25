@@ -5,8 +5,8 @@ import { loginSuccess, loginFailure, setLoading } from '../toolkit/authSlice';
 import { authAPI } from '../services/api';
 
 export default function RegisterNew() {
-  const [step, setStep] = useState(1); // Step 1: Select role, Step 2: Fill details
-  const [userType, setUserType] = useState(null); // 'job_seeker' or 'employer'
+  const [step, setStep] = useState(1); 
+  const [userType, setUserType] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',

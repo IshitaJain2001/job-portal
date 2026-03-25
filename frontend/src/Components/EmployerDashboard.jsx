@@ -4,7 +4,7 @@ import { jobsAPI, applicationsAPI } from '../services/api';
 
 export default function EmployerDashboard() {
   const { user, token } = useSelector(state => state.auth);
-  const [activeTab, setActiveTab] = useState('my-jobs'); // 'my-jobs' or 'post-job'
+  const [activeTab, setActiveTab] = useState('my-jobs'); 
   const [myJobs, setMyJobs] = useState([]);
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(false);
